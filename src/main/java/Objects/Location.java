@@ -3,12 +3,13 @@ package Objects;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 位置类
+ */
 public class Location {
     private final double longitude;
     private final double latitude;
     private boolean isVisited;
-    private boolean down;
-    private boolean up;
 
     public void setVisited(boolean visited) {
         isVisited = visited;
@@ -18,13 +19,6 @@ public class Location {
         return isVisited;
     }
 
-    public boolean isDown() {
-        return down;
-    }
-
-    public boolean isUp() {
-        return up;
-    }
 
     /**
      * 构造函数
@@ -34,28 +28,28 @@ public class Location {
     public Location(double x, double y) {
         this.longitude = x;
         this.latitude = y;
-        if (y >= x) {
-            down = true;
-            up = false;
-        } else {
-            down = false;
-            up = true;
-        }
     }
 
+    /**
+     * 经度
+     * @return double 经度
+     */
     public double getLongitude() {
-        double c = Math.sqrt(1);
         return longitude;
     }
 
+    /**
+     * 纬度
+     * @return double 纬度
+     */
     public double getLatitude() {
         return latitude;
     }
 
     /**
      * 计算两点距离
-     * @param l1
-     * @param l2
+     * @param l1 Location 1
+     * @param l2 Location 2
      * @return double 两点距离
      */
     public static double calDistance(Location l1, Location l2) {
@@ -68,8 +62,9 @@ public class Location {
     @Override
     public String toString() {
         return "[" +
-                (int )longitude +
-                ", " + (int) latitude +
+                (int)longitude +
+                ", " +
+                (int) latitude +
                 ']';
     }
 

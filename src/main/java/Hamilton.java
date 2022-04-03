@@ -34,6 +34,10 @@ public class Hamilton {
         }
     }
 
+    /**
+     * 生成边
+     * @param count
+     */
     public void generateEdge(int count) {
         stack = new Stack[count];
         for (int i = 0; i < count; i++) {
@@ -54,7 +58,9 @@ public class Hamilton {
             for (int j = i; j < count; j++) {
                 if (i != j) {
                     //edge[i][j] = rnd.nextInt(count * count) + 1; //i到j的距离
-                    edge[i][j] = (int) Location.calDistance(Main.where.get(i), Main.where.get(j));
+                    edge[i][j] = (int) Location.calDistance(
+                            Main.communityLocationList.get(i),
+                            Main.communityLocationList.get(j));
                     edge[j][i] = edge[i][j];
                 } else {
                     edge[i][j] = 0;  //到自身的距离
@@ -64,14 +70,18 @@ public class Hamilton {
     }
 
 
-    public void outEdge(int count) {
-        for (int i = 0; i < count; i++) {
-            for (int j = 0; j < count; j++) {
-                System.out.print(Integer.toString(edge[i][j]) + ' ');
-            }
-            System.out.println();
-        }
-    }
+    /**
+     * 输出边
+     * @param
+     */
+//    public void outEdge(int count) {
+//        for (int i = 0; i < count; i++) {
+//            for (int j = 0; j < count; j++) {
+//                System.out.print(Integer.toString(edge[i][j]) + ' ');
+//            }
+//            System.out.println();
+//        }
+//    }
 
 
     public void outPath() {
@@ -95,7 +105,6 @@ public class Hamilton {
 
     /**
      * 贪心算法查找
-     *
      * @param temp
      */
     public void greedyFind(int temp) {
@@ -233,7 +242,13 @@ public class Hamilton {
 
         temp.generateEdge(count);
         temp.initialFoudEdge(count);
-        temp.outEdge(count);
+
+
+        // TODO
+        // temp.outEdge(count);
+
+
+
         temp.greedyFind(0);
         // System.out.println("每条路径均从第0号节点出发，最后回到第0号节点。");
 

@@ -35,29 +35,29 @@ public class MyPanel extends JPanel {
 //                (int) Main.where.get(Main.where.size() - 1).getLongitude(),
 //                (int) Main.where.get(Main.where.size() - 1).getLatitude());
 
-        for (int i = 1; i < 10; i++) {
-            Location point = Main.where.get(i);
-            g.setColor(Color.BLUE);
-            g.drawOval((int) point.getLongitude(), (int) point.getLatitude(), 10, 10);
-            g.setColor(Color.BLACK);
-            /*距离圆*/
-            //int diameter = 2 * (int) Location.calDistance(Main.trashCenter, point);
-            //g.drawOval(-diameter / 2, -diameter / 2, diameter, diameter); //距离圆
-        }
-        g.setColor(Color.GREEN);
+//        for (int i = 1; i < 10; i++) {
+//            Location point = Main.where.get(i);
+//            g.setColor(Color.BLUE);
+//            g.drawOval((int) point.getLongitude(), (int) point.getLatitude(), 10, 10);
+//            g.setColor(Color.BLACK);
+//            /*距离圆*/
+//            //int diameter = 2 * (int) Location.calDistance(Main.trashCenter, point);
+//            //g.drawOval(-diameter / 2, -diameter / 2, diameter, diameter); //距离圆
+//        }
+//        g.setColor(Color.GREEN);
 
 
-        Main.where.get(0).setVisited(true);  //已经访问
-
-        withHead.add(Main.where.get(0));
-        for (int i = 1; i < Main.where.size(); i++) {
-            Location current = Main.where.get(i);
-            if (current.isDown() == Main.where.get(0).isDown())
-                withHead.add(current);
-            else
-                withoutHead.add(current);
-        }
-        boolean maxDisLocationWithHead = withHead.contains(Main.where.get(Main.where.size() - 1)); //最远点是否在出发时访问
+//        Main.where.get(0).setVisited(true);  //已经访问
+//
+//        withHead.add(Main.where.get(0));
+//        for (int i = 1; i < Main.where.size(); i++) {
+//            Location current = Main.where.get(i);
+//            if (current.isDown() == Main.where.get(0).isDown())
+//                withHead.add(current);
+//            else
+//                withoutHead.add(current);
+//        }
+//        boolean maxDisLocationWithHead = withHead.contains(Main.where.get(Main.where.size() - 1)); //最远点是否在出发时访问
 
         //绘制出发时访问的点
 //        for (int i = 0; i < withHead.size() - 1; i++) {

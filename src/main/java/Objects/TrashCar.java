@@ -6,6 +6,7 @@ public class TrashCar {
     private double currentWeight; // 单位为吨
     private double currentVolume; // 单位为立方米
     private double carWidth;
+    private String carType;
 
     /**
      * 高德此分类依据国标。1：微型车，2：轻型车（默认值），3：中型车，4：重型车
@@ -18,13 +19,19 @@ public class TrashCar {
      * @param max_weight 垃圾车最大载重量
      * @param max_volume 垃圾车最大容积
      */
-    public TrashCar(double max_weight, double max_volume, double width, Location initLocation) {
+    public TrashCar(
+            double max_weight,
+            double max_volume,
+            double width,
+            Location initLocation,
+            String carType) {
         MAX_WEIGHT = max_weight;
         MAX_VOLUME = max_volume;
         currentVolume = 0;
         currentWeight = 0;
         this.location = initLocation;
         carWidth = width;
+        this.carType = carType;
     }
 
     public Location getLocation() {
