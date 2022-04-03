@@ -22,16 +22,6 @@ public class MyPanel extends JPanel {
         int centerY = (int) Main.trashCenter.getLatitude();
     }
 
-    /**
-     * 优化排序
-     * @param inList 优化前的列表
-     * @return 优化后的到访顺序列表
-     */
-    public static List<Location> changeOrder(List<Location> inList) {
-        int length = inList.size();
-        //TODO
-        return null;
-    }
 
     @Override
     public void paint(Graphics g) {

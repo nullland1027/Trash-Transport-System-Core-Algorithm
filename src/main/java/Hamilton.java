@@ -82,6 +82,7 @@ public class Hamilton {
         }
         System.out.println(s[s.length - 1]);
     }
+
     public int[] getS() {
         return s;
     }
@@ -94,6 +95,7 @@ public class Hamilton {
 
     /**
      * 贪心算法查找
+     *
      * @param temp
      */
     public void greedyFind(int temp) {
@@ -129,6 +131,7 @@ public class Hamilton {
 
     /**
      * 回溯法查找
+     *
      * @param start
      */
     public void find(int start) {
@@ -163,7 +166,7 @@ public class Hamilton {
                         t[k] = start;
                         weight = nweight + edge[i][start];//每次输出时权值在变，所以每次比较都与当前的最短路径权值比较。
                         transform();
-                         //outPath();
+                        //outPath();
                         s[s.length - 1] = nweight + edge[i][start];
 
                     }
@@ -245,33 +248,4 @@ public class Hamilton {
         return temp.s;
     }
 
-//    public static void main(String[] args) {
-//        Hamilton temp = new Hamilton();
-//        InputStreamReader is = new InputStreamReader(System.in);
-//        BufferedReader brs = new BufferedReader(is);
-//        System.out.print("输入顶点数：");
-//        String number = null;
-//        try {
-//            number = brs.readLine();
-//            count = Integer.parseInt(number);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        temp.generateEdge(count);
-//        temp.initialFoudEdge(count);
-//        temp.outEdge(count);
-//        temp.greedyFind(0);
-//        // System.out.println("每条路径均从第0号节点出发，最后回到第0号节点。");
-//
-//        System.out.println("第一条路径为先用贪心算法找到的局部最优解。");
-//        temp.outPath();
-//        temp.initialFoudEdge(count);
-//
-//        System.out.println("以下是通过回溯限界法与局部最优相比较找到的其余更短路径。");
-//
-//        temp.find(0);
-//        temp.outPath();
-//        System.out.println(temp.getS().toString());
-//    }
 }
