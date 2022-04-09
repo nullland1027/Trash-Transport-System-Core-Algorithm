@@ -7,7 +7,7 @@ import java.io.*;
 import java.lang.System;
 
 public class Hamilton {
-    //private Random rnd = new Random();
+
     private int start;
     public List<Location> unSort; //待排序的列表
     public static int count = 0;
@@ -59,8 +59,10 @@ public class Hamilton {
                 if (i != j) {
                     //edge[i][j] = rnd.nextInt(count * count) + 1; //i到j的距离
                     edge[i][j] = (int) Location.calDistance(
-                            Main.communityLocationList.get(i),
-                            Main.communityLocationList.get(j));
+                            unSort.get(i),
+                            unSort.get(j));
+                            //Main.communityLocationList.get(i),
+                            //Main.communityLocationList.get(j));
                     edge[j][i] = edge[i][j];
                 } else {
                     edge[i][j] = 0;  //到自身的距离
@@ -226,7 +228,7 @@ public class Hamilton {
         }
     }
 
-    public int[] getAnswer(List<Location> inFunction) {
+    public int[] getAnswer(List<Location> inFunction, int countIn) {
         Hamilton temp = new Hamilton(inFunction);
         InputStreamReader is = new InputStreamReader(System.in);
         BufferedReader brs = new BufferedReader(is);
@@ -235,10 +237,11 @@ public class Hamilton {
         try {
 //            number = brs.readLine();
 //            count = Integer.parseInt(number);
-            count = Main.numOfLocation;
+            count = countIn + 1;
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
         temp.generateEdge(count);
         temp.initialFoudEdge(count);
